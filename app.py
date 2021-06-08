@@ -21,6 +21,10 @@ app = Client(api_id=APP_ID, api_hash=API_HASH,
 def tts_audio(client, msg):
     text = list(msg.text.split(" "))[1:]
     lang = "en"
+    chat_id = msg.chat.id
+
+    if "--delete" in text:
+        msg.delete()
     if "--lang" in text:
         lang = text[text.index("--lang") + 1]
         # if lang not in gtts.lang.tts_langs():
@@ -36,7 +40,7 @@ def tts_audio(client, msg):
     audio = gTTS(text=message, lang=lang, slow=False)
     audio.save(filename)
     # send audio
-    client.send_voice(msg.chat.id, filename)
+    client.send_voice(chat_id, filename)
     # delete the file
     os.remove(filename)
 
