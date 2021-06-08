@@ -1,6 +1,7 @@
 import os
 from pyrogram import Client, filters
 from gtts import gTTS
+import audioread
 
 
 APP_ID = os.environ.get("APP_ID")
@@ -40,8 +41,11 @@ def tts(client, msg):
     # text-to-speech
     audio = gTTS(text=message, lang=lang, slow=False)
     audio.save(filename)
+
+    f = audioread.audio_open(filename)
+    totalsec = int(f.duration)
     # send audio
-    client.send_voice(chat_id, filename)
+    client.send_voice(chat_id, filename, duration=totalsec)
     # delete the file
     os.remove(filename)
 

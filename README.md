@@ -20,5 +20,6 @@ don't freak out, it's a standard procedure, just fill it out.
 - [x] message auto-delete flag
 - [x] message change language selection
 - [x] rename the tts command
+- [x] calculate the duration of the voice message
 - [ ] incorrent language errors
 - [ ] auto-deploy to heroku
