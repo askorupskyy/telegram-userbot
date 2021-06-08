@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyaes = "==1.6.1"
+pyasn1 = "==0.4.8"
+rsa = "==4.7.2"
+async_lru = "==1.0.2"
+Pyrogram = "==1.2.9"
+PySocks = "==1.7.1"
+Telethon = "==1.21.1"
+gtts = "*"
+
+[dev-packages]
+
+[scripts]
+start = "python app.py"
+
+[requires]
+python_version = "3.8"
