@@ -5,7 +5,8 @@ REQS = requirements.txt
 install:
 	pip3 install pipenv ;\
 	python3 -m pipenv install;\
-	touch .env
+	touch .env;\
+	mkdir media;\
 
 start:
 	pipenv run start
