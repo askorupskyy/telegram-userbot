@@ -17,20 +17,20 @@ app = Client(api_id=APP_ID, api_hash=API_HASH,
              bot_token="", session_name="tg-audio-bot")
 
 
-@app.on_message(filters.command("tts_audio", prefixes="/") & filters.me)
-def tts_audio(client, msg):
+@app.on_message(filters.command("tts", prefixes="/") & filters.me)
+def tts(client, msg):
     text = list(msg.text.split(" "))[1:]
     lang = "en"
     chat_id = msg.chat.id
 
     if "--delete" in text:
         msg.delete()
-    if "--lang" in text:
-        lang = text[text.index("--lang") + 1]
-        # if lang not in gtts.lang.tts_langs():
-        # pass
-        text.remove(lang)
-        text.remove("--lang")
+
+    languages = list(filter(lambda c: "--lang" in c, text))
+    if languages:
+        lang = languages[-1].split("=")[1]
+    for lan in languages:
+        text.remove(lan)
 
     # convert back to text
     message = " ".join(text)
