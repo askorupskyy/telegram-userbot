@@ -25,6 +25,7 @@ def tts(client, msg):
 
     if "--delete" in text:
         msg.delete()
+        text.remove("--delete")
 
     languages = list(filter(lambda c: "--lang" in c, text))
     if languages:
