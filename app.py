@@ -23,13 +23,15 @@ def tts_audio(client, msg):
     lang = "en"
     if "--lang" in text:
         lang = text[text.index("--lang") + 1]
+        # if lang not in gtts.lang.tts_langs():
+        # pass
         text.remove(lang)
         text.remove("--lang")
 
     # convert back to text
     message = " ".join(text)
     # create a filename for the message
-    filename = f'./media/{message}-{lang}.ogg'
+    filename = f'media/{message}-{lang}.ogg'
     # text-to-speech
     audio = gTTS(text=message, lang=lang, slow=False)
     audio.save(filename)
