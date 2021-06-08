@@ -17,6 +17,6 @@ don't freak out, it's a standard procedure, just fill it out.
 
 ## TODOs:
 
-- [] message auto-delete flag
-- [] incorrent language errors
-- [] auto-deploy to heroku
+- [ ] message auto-delete flag
+- [ ] incorrent language errors
+- [ ] auto-deploy to heroku
